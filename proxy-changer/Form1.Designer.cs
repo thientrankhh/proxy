@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.dt = new System.Windows.Forms.DataGridView();
-            this.server = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.land = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ping = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.serverMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reportServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,100 +96,14 @@
             this.useWaitCursorDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.visibleDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imeModeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.status = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.home1 = new MetroFramework.Controls.MetroTabPage();
-            this.server_counter = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.info = new MetroFramework.Controls.MetroTabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnChangeProxy = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.links = new MetroFramework.Controls.MetroTabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dt)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIp = new System.Windows.Forms.TextBox();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.serverMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.metroTabControl1.SuspendLayout();
-            this.home1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.info.SuspendLayout();
-            this.links.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dt
-            // 
-            this.dt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dt.BackgroundColor = System.Drawing.Color.White;
-            this.dt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.server,
-            this.land,
-            this.ping,
-            this.action});
-            this.dt.ContextMenuStrip = this.serverMenu;
-            this.dt.Location = new System.Drawing.Point(-41, 41);
-            this.dt.MultiSelect = false;
-            this.dt.Name = "dt";
-            this.dt.ReadOnly = true;
-            this.dt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dt.Size = new System.Drawing.Size(664, 338);
-            this.dt.TabIndex = 1;
-            this.dt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dt_CellContentClick);
-            // 
-            // server
-            // 
-            this.server.HeaderText = "Server";
-            this.server.Name = "server";
-            this.server.ReadOnly = true;
-            this.server.Width = 200;
-            // 
-            // land
-            // 
-            this.land.HeaderText = "Country";
-            this.land.Name = "land";
-            this.land.ReadOnly = true;
-            this.land.Width = 200;
-            // 
-            // ping
-            // 
-            this.ping.HeaderText = "Ping";
-            this.ping.Name = "ping";
-            this.ping.ReadOnly = true;
-            // 
-            // action
-            // 
-            this.action.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.action.HeaderText = "Action";
-            this.action.Name = "action";
-            this.action.ReadOnly = true;
-            this.action.Text = "Connect";
-            this.action.UseColumnTextForButtonValue = true;
             // 
             // serverMenu
             // 
@@ -203,21 +112,18 @@
             this.clearListToolStripMenuItem});
             this.serverMenu.Name = "serverMenu";
             this.serverMenu.Size = new System.Drawing.Size(145, 48);
-            this.serverMenu.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // reportServerToolStripMenuItem
             // 
             this.reportServerToolStripMenuItem.Name = "reportServerToolStripMenuItem";
             this.reportServerToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.reportServerToolStripMenuItem.Text = "Report Server";
-            this.reportServerToolStripMenuItem.Click += new System.EventHandler(this.reportServerToolStripMenuItem_Click);
             // 
             // clearListToolStripMenuItem
             // 
             this.clearListToolStripMenuItem.Name = "clearListToolStripMenuItem";
             this.clearListToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.clearListToolStripMenuItem.Text = "Clear list";
-            this.clearListToolStripMenuItem.Click += new System.EventHandler(this.clearListToolStripMenuItem_Click);
             // 
             // styleDataGridViewTextBoxColumn1
             // 
@@ -598,423 +504,83 @@
             this.imeModeDataGridViewTextBoxColumn1.HeaderText = "ImeMode";
             this.imeModeDataGridViewTextBoxColumn1.Name = "imeModeDataGridViewTextBoxColumn1";
             // 
-            // textBox1
+            // btnChangeProxy
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(629, 201);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(359, 219);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(623, 35);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Disconnect";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // status
-            // 
-            this.status.AutoSize = true;
-            this.status.BackColor = System.Drawing.Color.White;
-            this.status.Font = new System.Drawing.Font("Exo 2", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.ForeColor = System.Drawing.Color.Red;
-            this.status.Location = new System.Drawing.Point(629, 179);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(115, 24);
-            this.status.TabIndex = 4;
-            this.status.Text = "No Connected";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(48, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(12, 10);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // metroTabControl1
-            // 
-            this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTabControl1.Controls.Add(this.home1);
-            this.metroTabControl1.Controls.Add(this.info);
-            this.metroTabControl1.Controls.Add(this.links);
-            this.metroTabControl1.Location = new System.Drawing.Point(33, 64);
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(996, 465);
-            this.metroTabControl1.TabIndex = 6;
-            this.metroTabControl1.UseSelectable = true;
-            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
-            // 
-            // home1
-            // 
-            this.home1.Controls.Add(this.server_counter);
-            this.home1.Controls.Add(this.groupBox1);
-            this.home1.Controls.Add(this.textBox1);
-            this.home1.Controls.Add(this.status);
-            this.home1.Controls.Add(this.dt);
-            this.home1.Controls.Add(this.button1);
-            this.home1.HorizontalScrollbarBarColor = true;
-            this.home1.HorizontalScrollbarHighlightOnWheel = false;
-            this.home1.HorizontalScrollbarSize = 1;
-            this.home1.Location = new System.Drawing.Point(4, 38);
-            this.home1.Name = "home1";
-            this.home1.Size = new System.Drawing.Size(988, 423);
-            this.home1.TabIndex = 2;
-            this.home1.Text = "Home";
-            this.home1.VerticalScrollbarBarColor = true;
-            this.home1.VerticalScrollbarHighlightOnWheel = false;
-            this.home1.VerticalScrollbarSize = 1;
-            // 
-            // server_counter
-            // 
-            this.server_counter.AutoSize = true;
-            this.server_counter.BackColor = System.Drawing.Color.White;
-            this.server_counter.Location = new System.Drawing.Point(54, 45);
-            this.server_counter.Name = "server_counter";
-            this.server_counter.Size = new System.Drawing.Size(40, 24);
-            this.server_counter.TabIndex = 10;
-            this.server_counter.Text = "( 0 )";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.pictureBox6);
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Controls.Add(this.pictureBox4);
-            this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Location = new System.Drawing.Point(629, 29);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(359, 135);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Protocols";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::proxy_changer.Properties.Resources.info;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pictureBox6.Location = new System.Drawing.Point(109, 4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox6.TabIndex = 13;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::proxy_changer.Properties.Resources.info;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pictureBox5.Location = new System.Drawing.Point(109, 50);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox5.TabIndex = 12;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::proxy_changer.Properties.Resources.info;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pictureBox4.Location = new System.Drawing.Point(109, 79);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::proxy_changer.Properties.Resources.info;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pictureBox3.Location = new System.Drawing.Point(317, 79);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::proxy_changer.Properties.Resources.info;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Help;
-            this.pictureBox2.Location = new System.Drawing.Point(318, 50);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(29, 45);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 28);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "HTTP";
-            this.radioButton1.UseVisualStyleBackColor = false;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.BackColor = System.Drawing.Color.White;
-            this.radioButton4.Location = new System.Drawing.Point(224, 74);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(88, 28);
-            this.radioButton4.TabIndex = 8;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "SOCKS 5";
-            this.radioButton4.UseVisualStyleBackColor = false;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(29, 74);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(75, 28);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "HTTPS";
-            this.radioButton2.UseVisualStyleBackColor = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.BackColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(224, 45);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(89, 28);
-            this.radioButton3.TabIndex = 7;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "SOCKS 4";
-            this.radioButton3.UseVisualStyleBackColor = false;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // info
-            // 
-            this.info.Controls.Add(this.label2);
-            this.info.Controls.Add(this.label1);
-            this.info.Controls.Add(this.textBox2);
-            this.info.HorizontalScrollbarBarColor = true;
-            this.info.HorizontalScrollbarHighlightOnWheel = false;
-            this.info.HorizontalScrollbarSize = 1;
-            this.info.Location = new System.Drawing.Point(4, 38);
-            this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(988, 423);
-            this.info.TabIndex = 3;
-            this.info.Text = "Info";
-            this.info.VerticalScrollbarBarColor = true;
-            this.info.VerticalScrollbarHighlightOnWheel = false;
-            this.info.VerticalScrollbarSize = 1;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(866, 400);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Version";
+            this.btnChangeProxy.Location = new System.Drawing.Point(123, 161);
+            this.btnChangeProxy.Name = "btnChangeProxy";
+            this.btnChangeProxy.Size = new System.Drawing.Size(144, 39);
+            this.btnChangeProxy.TabIndex = 6;
+            this.btnChangeProxy.Text = "Change";
+            this.btnChangeProxy.UseVisualStyleBackColor = true;
+            this.btnChangeProxy.Click += new System.EventHandler(this.btnChangeProxy_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Location = new System.Drawing.Point(44, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Changelog";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Enter IP";
             // 
-            // textBox2
+            // label2
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(7, 65);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(318, 355);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = resources.GetString("textBox2.Text");
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 115);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Enter Port";
             // 
-            // links
+            // txtIp
             // 
-            this.links.Controls.Add(this.label7);
-            this.links.Controls.Add(this.label8);
-            this.links.Controls.Add(this.label5);
-            this.links.Controls.Add(this.label6);
-            this.links.Controls.Add(this.label4);
-            this.links.Controls.Add(this.label3);
-            this.links.HorizontalScrollbarBarColor = true;
-            this.links.HorizontalScrollbarHighlightOnWheel = false;
-            this.links.HorizontalScrollbarSize = 5;
-            this.links.Location = new System.Drawing.Point(4, 38);
-            this.links.Name = "links";
-            this.links.Size = new System.Drawing.Size(988, 423);
-            this.links.TabIndex = 5;
-            this.links.Text = "Links";
-            this.links.VerticalScrollbarBarColor = true;
-            this.links.VerticalScrollbarHighlightOnWheel = false;
-            this.links.VerticalScrollbarSize = 5;
+            this.txtIp.Location = new System.Drawing.Point(138, 71);
+            this.txtIp.Name = "txtIp";
+            this.txtIp.Size = new System.Drawing.Size(129, 26);
+            this.txtIp.TabIndex = 9;
             // 
-            // label5
+            // txtPort
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Exo 2", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(141, 75);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(274, 24);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "https://adsoleware.com/community";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.txtPort.Location = new System.Drawing.Point(137, 113);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(130, 26);
+            this.txtPort.TabIndex = 10;
             // 
-            // label6
+            // btnReset
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(11, 75);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 24);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Forum";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("Exo 2", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(141, 36);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 24);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "https://adsoleware.com";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 36);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 24);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Website";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(11, 114);
-            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 24);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "GitHub Repo";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label7.Font = new System.Drawing.Font("Exo 2", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(141, 114);
-            this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(351, 24);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "https://github.com/hackthedev/proxy-changer";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.btnReset.Location = new System.Drawing.Point(123, 208);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(144, 39);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 550);
-            this.Controls.Add(this.metroTabControl1);
-            this.Controls.Add(this.pictureBox1);
-            this.Font = new System.Drawing.Font("Exo 2", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.txtIp);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnChangeProxy);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(703, 291);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(30, 88, 30, 29);
-            this.Text = "Proxy Changer";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dt)).EndInit();
+            this.Text = "Form";
             this.serverMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.metroTabControl1.ResumeLayout(false);
-            this.home1.ResumeLayout(false);
-            this.home1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.info.ResumeLayout(false);
-            this.info.PerformLayout();
-            this.links.ResumeLayout(false);
-            this.links.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dt;
         private System.Windows.Forms.DataGridViewTextBoxColumn styleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn themeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn textAlignDataGridViewTextBoxColumn1;
@@ -1078,41 +644,15 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn useWaitCursorDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn visibleDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn imeModeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn server;
-        private System.Windows.Forms.DataGridViewTextBoxColumn land;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ping;
-        private System.Windows.Forms.DataGridViewButtonColumn action;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label status;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage home1;
-        private MetroFramework.Controls.MetroTabPage info;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ContextMenuStrip serverMenu;
         private System.Windows.Forms.ToolStripMenuItem reportServerToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.ToolStripMenuItem clearListToolStripMenuItem;
-        private System.Windows.Forms.Label server_counter;
-        private MetroFramework.Controls.MetroTabPage links;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnChangeProxy;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtIp;
+        private System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 
