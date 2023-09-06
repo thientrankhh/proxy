@@ -41,10 +41,19 @@ namespace proxy_changer
         protected IDevToolsSession session;
         protected IWebDriver driver;
         protected DevToolsSessionDomains devToolsSession;
+        List<string> comboBoxBrowserItems = new List<string> { "Google Chrome", "Pirefox" };
+        string GoogleChrome = "Google Chrome";
+        string Pirefox = "Pirefox";
 
         public Form1()
         {
             InitializeComponent();
+            load();
+        }
+
+        public void load()
+        {
+            comboBoxBrowser.DataSource = comboBoxBrowserItems;
         }
 
 
@@ -67,28 +76,34 @@ namespace proxy_changer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var selectValue = comboBoxBrowser.SelectedValue;
+            string userAgent = textUserAgent.Text;
 
-            /*  SetupChromeDriver();*/
-            /*SetupFirefoxDriver();*/
-
-            /*devToolsSession.Network.SetUserAgentOverride(new OpenQA.Selenium.DevTools.V116.Network.SetUserAgentOverrideCommandSettings()
+            if (selectValue == GoogleChrome)
             {
-                UserAgent = "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"
-            });*/
+                SetupChromeDriver();
 
-           /* var options = new ChromeOptions();
-            options.AddArgument("--user-agent=Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25");
+                /*devToolsSession.Network.SetUserAgentOverride(new OpenQA.Selenium.DevTools.V116.Network.SetUserAgentOverrideCommandSettings()
+                {
+                    UserAgent = "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"
+                });*/
 
-            IWebDriver driver = new ChromeDriver(options);
+                var options = new ChromeOptions();
+                options.AddArgument("--user-agent=" + userAgent);
 
-            driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";*/
+                IWebDriver driver = new ChromeDriver(options);
 
-            var profile = new FirefoxOptions();
-            profile.SetPreference("general.useragent.override", "Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10");
+                driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";
+            }
+            else
+            {
+                var profile = new FirefoxOptions();
+                profile.SetPreference("general.useragent.override", userAgent);
 
-            IWebDriver driver = new FirefoxDriver(profile);
+                IWebDriver driver = new FirefoxDriver(profile);
 
-            driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";
+                driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";
+            }
         }
 
         public void SetupFirefoxDriver()
@@ -169,6 +184,11 @@ namespace proxy_changer
             const string keyName = userRoot + "\\" + subkey;
 
             Registry.SetValue(keyName, "ProxyEnable", 0);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
