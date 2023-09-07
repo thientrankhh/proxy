@@ -22,14 +22,6 @@ using System.Xml;
 using Microsoft.Win32;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.DevTools;
-using System.Threading;
-using System.Security.Cryptography;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
-using DevToolsSessionDomains = OpenQA.Selenium.DevTools.V116.DevToolsSessionDomains;
 
 namespace proxy_changer
 
@@ -38,20 +30,9 @@ namespace proxy_changer
     {
         RegistryKey reg_key;
 
-        protected IDevToolsSession session;
-        protected IWebDriver driver;
-        protected DevToolsSessionDomains devToolsSession;
-        List<string> comboBoxBrowserItems = new List<string> { "Google Chrome", "Pirefox"};
-
         public Form1()
         {
             InitializeComponent();
-            load();
-        }
-
-        public void load()
-        {
-            comboBoxBrowser.DataSource = comboBoxBrowserItems;
         }
 
 
@@ -61,74 +42,9 @@ namespace proxy_changer
         public const int INTERNET_OPTION_REFRESH = 37;
         static bool settingsReturn, refreshReturn;
 
-        [DllImport("urlmon.dll", CharSet = CharSet.Ansi)]
-        private static extern int UrlMkSetSessionOption(
-        int dwOption, string pBuffer, int dwBufferLength, int dwReserved);
-
-        const int URLMON_OPTION_USERAGENT = 0x10000001;
-        const int URLMON_OPTION_USERAGENT_REFRESH = 0x10000002;
-
         int counter = 0;
         string file;
         string filebase = Directory.GetCurrentDirectory();
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            /*  SetupChromeDriver();*/
-            /*SetupFirefoxDriver();*/
-
-            /*devToolsSession.Network.SetUserAgentOverride(new OpenQA.Selenium.DevTools.V116.Network.SetUserAgentOverrideCommandSettings()
-            {
-                UserAgent = "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"
-            });*/
-
-           /* var options = new ChromeOptions();
-            options.AddArgument("--user-agent=Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25");
-
-            IWebDriver driver = new ChromeDriver(options);
-
-            driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";*/
-
-            var profile = new FirefoxOptions();
-            profile.SetPreference("general.useragent.override", "Mozilla/5.0(iPad; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B314 Safari/531.21.10");
-
-            IWebDriver driver = new FirefoxDriver(profile);
-
-            driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";
-        }
-
-        public void SetupFirefoxDriver()
-        {
-            new DriverManager().SetUpDriver(new FirefoxConfig());
-            FirefoxOptions chromeOptions = new FirefoxOptions();
-            chromeOptions.AddArguments("--headless");
-            //Set ChromeDriver
-            FirefoxDriver driver = new FirefoxDriver();
-            //Get DevTools
-            IDevTools devTools = driver as IDevTools;
-            //DevTools Session
-            session = devTools.GetDevToolsSession();
-
-            devToolsSession = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
-            devToolsSession.Network.Enable(new OpenQA.Selenium.DevTools.V116.Network.EnableCommandSettings());
-        }
-
-        public void SetupChromeDriver()
-        {
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("--headless");
-            //Set ChromeDriver
-            ChromeDriver driver = new ChromeDriver();
-            //Get DevTools
-            IDevTools devTools = driver as IDevTools;
-            //DevTools Session
-            session = devTools.GetDevToolsSession();
-
-            devToolsSession = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
-            devToolsSession.Network.Enable(new OpenQA.Selenium.DevTools.V116.Network.EnableCommandSettings());
-        }
 
         private void btnChangeProxy_Click(object sender, EventArgs e)
         {
@@ -165,11 +81,6 @@ namespace proxy_changer
             // They cause the OS to refresh the settings, causing IP to realy update
             settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
             refreshReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)
