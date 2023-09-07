@@ -1,0 +1,34 @@
+profile setting
+
+USER AGENT
+language
+timezone
+gelocation
+webrtc
+
+
+https://www.youtube.com/watch?v=qgPLLWG6GTs
+
+
+https://stackoverflow.com/questions/17998162/how-to-change-user-agent-in-selenium-with-net
+
+
+
+list user agent 
+
+https://deviceatlas.com/blog/list-of-user-agent-strings
+
+
+https://github.com/mozilla/geckodriver/releases
+
+
+list api : 
+
+https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all
+
+list proxy :
+
+https://proxy11.com/
+
+IP: 89.187.179.163
+PORT : 8443	

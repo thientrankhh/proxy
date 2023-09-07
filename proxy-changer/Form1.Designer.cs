@@ -103,7 +103,13 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textUserAgent = new System.Windows.Forms.TextBox();
+            this.comboBoxBrowser = new System.Windows.Forms.ComboBox();
+            this.ChangeProfile = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelProxy = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.serverMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -508,18 +514,21 @@
             // 
             // btnChangeProxy
             // 
-            this.btnChangeProxy.Location = new System.Drawing.Point(123, 161);
+            this.btnChangeProxy.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnChangeProxy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeProxy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnChangeProxy.Location = new System.Drawing.Point(20, 198);
             this.btnChangeProxy.Name = "btnChangeProxy";
             this.btnChangeProxy.Size = new System.Drawing.Size(144, 39);
             this.btnChangeProxy.TabIndex = 6;
             this.btnChangeProxy.Text = "Change";
-            this.btnChangeProxy.UseVisualStyleBackColor = true;
+            this.btnChangeProxy.UseVisualStyleBackColor = false;
             this.btnChangeProxy.Click += new System.EventHandler(this.btnChangeProxy_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 71);
+            this.label1.Location = new System.Drawing.Point(44, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 7;
@@ -528,7 +537,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 115);
+            this.label2.Location = new System.Drawing.Point(44, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 8;
@@ -536,51 +545,112 @@
             // 
             // txtIp
             // 
-            this.txtIp.Location = new System.Drawing.Point(138, 71);
+            this.txtIp.Location = new System.Drawing.Point(188, 106);
             this.txtIp.Name = "txtIp";
-            this.txtIp.Size = new System.Drawing.Size(129, 26);
+            this.txtIp.Size = new System.Drawing.Size(147, 26);
             this.txtIp.TabIndex = 9;
             // 
             // txtPort
             // 
-            this.txtPort.Location = new System.Drawing.Point(137, 113);
+            this.txtPort.Location = new System.Drawing.Point(187, 152);
             this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(130, 26);
+            this.txtPort.Size = new System.Drawing.Size(148, 26);
             this.txtPort.TabIndex = 10;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(123, 208);
+            this.btnReset.BackColor = System.Drawing.Color.Red;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(191, 198);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(144, 39);
             this.btnReset.TabIndex = 11;
             this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(644, 208);
+            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(871, 197);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 39);
             this.button1.TabIndex = 12;
             this.button1.Text = "Change";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textUserAgent
             // 
-            this.textBox1.Location = new System.Drawing.Point(644, 161);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 26);
-            this.textBox1.TabIndex = 13;
+            this.textUserAgent.Location = new System.Drawing.Point(871, 149);
+            this.textUserAgent.Name = "textUserAgent";
+            this.textUserAgent.Size = new System.Drawing.Size(158, 26);
+            this.textUserAgent.TabIndex = 13;
+            // 
+            // comboBoxBrowser
+            // 
+            this.comboBoxBrowser.FormattingEnabled = true;
+            this.comboBoxBrowser.Location = new System.Drawing.Point(872, 94);
+            this.comboBoxBrowser.Name = "comboBoxBrowser";
+            this.comboBoxBrowser.Size = new System.Drawing.Size(156, 28);
+            this.comboBoxBrowser.TabIndex = 15;
+            this.comboBoxBrowser.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // ChangeProfile
+            // 
+            this.ChangeProfile.AutoSize = true;
+            this.ChangeProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ChangeProfile.Location = new System.Drawing.Point(729, 59);
+            this.ChangeProfile.Name = "ChangeProfile";
+            this.ChangeProfile.Size = new System.Drawing.Size(128, 25);
+            this.ChangeProfile.TabIndex = 16;
+            this.ChangeProfile.Text = "Edit Profile";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(729, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 20);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Select browser";
+            // 
+            // labelProxy
+            // 
+            this.labelProxy.AutoSize = true;
+            this.labelProxy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProxy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelProxy.Location = new System.Drawing.Point(44, 66);
+            this.labelProxy.Name = "labelProxy";
+            this.labelProxy.Size = new System.Drawing.Size(114, 25);
+            this.labelProxy.TabIndex = 18;
+            this.labelProxy.Text = "Set Proxy";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(729, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 20);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Enter User agent";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1062, 550);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelProxy);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ChangeProfile);
+            this.Controls.Add(this.comboBoxBrowser);
+            this.Controls.Add(this.textUserAgent);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtPort);
@@ -675,7 +745,13 @@
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textUserAgent;
+        private System.Windows.Forms.ComboBox comboBoxBrowser;
+        private System.Windows.Forms.Label ChangeProfile;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelProxy;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
