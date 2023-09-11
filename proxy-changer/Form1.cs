@@ -29,10 +29,7 @@ using System.Threading;
 using System.Security.Cryptography;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
-using WebDriverManager.Helpers;
-using DevToolsSessionDomains = OpenQA.Selenium.DevTools.V114.DevToolsSessionDomains;
-using DevToolsSessionDomains1 = OpenQA.Selenium.DevTools.V114.DevToolsSessionDomains;
-using OpenQA.Selenium.Interactions;
+using DevToolsSessionDomains = OpenQA.Selenium.DevTools.V116.DevToolsSessionDomains;
 
 namespace proxy_changer
 
@@ -43,7 +40,7 @@ namespace proxy_changer
 
         protected IDevToolsSession session;
         protected IWebDriver driver;
-        protected DevToolsSessionDomains1 devToolsSession;
+        protected DevToolsSessionDomains devToolsSession;
         List<string> comboBoxBrowserItems = new List<string> { "Google Chrome", "Pirefox" };
         string GoogleChrome = "Google Chrome";
         string Pirefox = "Pirefox";
@@ -84,20 +81,26 @@ namespace proxy_changer
 
             if (selectValue == GoogleChrome)
             {
-                new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
-                var chromeDriverService = ChromeDriverService.CreateDefaultService();
-                ChromeOptions options = new ChromeOptions();
+                SetupChromeDriver();
+
+                /*devToolsSession.Network.SetUserAgentOverride(new OpenQA.Selenium.DevTools.V116.Network.SetUserAgentOverrideCommandSettings()
+                {
+                    UserAgent = "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"
+                });*/
+
+                var options = new ChromeOptions();
                 options.AddArgument("--user-agent=" + userAgent);
-                WebDriver driver = new ChromeDriver(chromeDriverService, options);
+
+                IWebDriver driver = new ChromeDriver(options);
+
                 driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";
             }
             else
             {
-                new DriverManager().SetUpDriver(new FirefoxConfig());
                 var profile = new FirefoxOptions();
                 profile.SetPreference("general.useragent.override", userAgent);
 
-                WebDriver driver = new FirefoxDriver(profile);
+                IWebDriver driver = new FirefoxDriver(profile);
 
                 driver.Url = "https://www.whatismybrowser.com/detect/what-is-my-user-agent";
             }
@@ -115,8 +118,8 @@ namespace proxy_changer
             //DevTools Session
             session = devTools.GetDevToolsSession();
 
-            devToolsSession = session.GetVersionSpecificDomains<DevToolsSessionDomains1>();
-            devToolsSession.Network.Enable(new OpenQA.Selenium.DevTools.V114.Network.EnableCommandSettings());
+            devToolsSession = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
+            devToolsSession.Network.Enable(new OpenQA.Selenium.DevTools.V116.Network.EnableCommandSettings());
         }
 
         public void SetupChromeDriver()
@@ -125,15 +128,14 @@ namespace proxy_changer
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("--headless");
             //Set ChromeDriver
-            
             ChromeDriver driver = new ChromeDriver();
             //Get DevTools
             IDevTools devTools = driver as IDevTools;
             //DevTools Session
             session = devTools.GetDevToolsSession();
 
-            devToolsSession = session.GetVersionSpecificDomains<DevToolsSessionDomains1>();
-            devToolsSession.Network.Enable(new OpenQA.Selenium.DevTools.V114.Network.EnableCommandSettings());
+            devToolsSession = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
+            devToolsSession.Network.Enable(new OpenQA.Selenium.DevTools.V116.Network.EnableCommandSettings());
         }
 
         private void btnChangeProxy_Click(object sender, EventArgs e)
@@ -151,6 +153,16 @@ namespace proxy_changer
             // They cause the OS to refresh the settings, causing IP to realy update
             InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
             InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
+
+
+
+           /* reg_key = Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", true);
+
+            string proxy = "http://" + txtIp.Text + ":" + txtPort.Text; //ip:port
+            reg_key.SetValue("ProxyEnable", 1);
+            reg_key.SetValue("ProxySever", proxy.ToString());
+            reg_key.Close();
+            refresh_vpn();*/
 
             MessageBox.Show("Proxy change to: ", proxy);
         }
@@ -172,26 +184,6 @@ namespace proxy_changer
             const string keyName = userRoot + "\\" + subkey;
 
             Registry.SetValue(keyName, "ProxyEnable", 0);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            new DriverManager().SetUpDriver(new ChromeConfig());
-
-            ChromeDriverService service1 = ChromeDriverService.CreateDefaultService();
-            ChromeOptions options1 = new ChromeOptions();
-            options1.AddArguments($"user-data-dir=C:/Users/{Environment.UserName}/AppData/Local/Google/Chrome/User Data");
-            options1.AddArgument("profile-directory=Profile 25");
-            service1.HideCommandPromptWindow = true;
-            ChromeDriver driver1 = new ChromeDriver(service1, options1);
-            driver1.Navigate().GoToUrl("https://www.google.com");
-
-            /* new DriverManager().SetUpDriver(new ChromeConfig());
-             ChromeOptions chromeOptions = new ChromeOptions();
-             chromeOptions.AddArguments("--user-data-directory=C:\\Users\\nguyen\\AppData\\Local\\Google\\Chrome\\User Data\\");
-             chromeOptions.AddArguments("--profile-directory=Profile 2");
-             //Set ChromeDriver
-             IWebDriver driver = new ChromeDriver(chromeOptions);*/
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

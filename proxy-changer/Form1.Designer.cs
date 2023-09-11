@@ -110,8 +110,6 @@
             this.labelProxy = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.serverMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -608,9 +606,9 @@
             this.ChangeProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ChangeProfile.Location = new System.Drawing.Point(729, 59);
             this.ChangeProfile.Name = "ChangeProfile";
-            this.ChangeProfile.Size = new System.Drawing.Size(171, 25);
+            this.ChangeProfile.Size = new System.Drawing.Size(128, 25);
             this.ChangeProfile.TabIndex = 16;
-            this.ChangeProfile.Text = "Set User Agent";
+            this.ChangeProfile.Text = "Edit Profile";
             // 
             // label3
             // 
@@ -641,38 +639,12 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Enter User agent";
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(89, 318);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 39);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Change";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(84, 281);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 25);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Add Profile";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1062, 550);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelProxy);
             this.Controls.Add(this.label3);
@@ -780,8 +752,6 @@
         private System.Windows.Forms.Label labelProxy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label4;
     }
 }
 
