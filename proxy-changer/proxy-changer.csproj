@@ -77,6 +77,15 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>..\packages\AngleSharp.1.0.4\lib\net472\AngleSharp.dll</HintPath>
@@ -162,7 +171,10 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.4.12.2\lib\netstandard2.0\WebDriver.dll</HintPath>
+      <HintPath>..\packages\Selenium.WebDriver.4.10.0\lib\net48\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.4.10.0\lib\net48\WebDriver.Support.dll</HintPath>
     </Reference>
     <Reference Include="WebDriverManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebDriverManager.2.17.1\lib\net462\WebDriverManager.dll</HintPath>
@@ -194,6 +206,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Form1.datasource" />
     <None Include="Properties\Settings.settings">
@@ -240,12 +253,12 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.116.0.5845.9600\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.116.0.5845.9600\build\Selenium.WebDriver.ChromeDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.12.2\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.12.2\build\Selenium.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.33.0\build\Selenium.WebDriver.GeckoDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.0.33.0\build\Selenium.WebDriver.GeckoDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.10.0\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.10.0\build\Selenium.WebDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.116.0.5845.9600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.116.0.5845.9600\build\Selenium.WebDriver.ChromeDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.4.12.2\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.12.2\build\Selenium.WebDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.33.0\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.33.0\build\Selenium.WebDriver.GeckoDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.114.0.5735.9000\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.4.10.0\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.10.0\build\Selenium.WebDriver.targets')" />
 </Project>
